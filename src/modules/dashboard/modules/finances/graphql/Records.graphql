@@ -1,0 +1,18 @@
+#import './RecordFragment.graphql'
+# import * from './Operation.graphql'
+
+query RecordsByMonth (
+  $month: String,
+  $type: Operation
+  $accountsIds: [ID!],
+  $categoriesIds: [ID!]
+) {
+  records (
+    month: $month,
+    type: $type,
+    accountsIds: $accountsIds,
+    categoriesIds: $categoriesIds
+  ) {
+    ...RecordFragment
+  }
+}
